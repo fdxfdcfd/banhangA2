@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Quản lý Nhân viên</h3>
+
+                <div class="box-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tài khoản</th>
+                            <th>Tên</th>
+                            <th>Status</th>
+                            <th>Email</th>
+                            <th>Thao tác</th>
+                        </tr>
+                        <tr *ngFor="let user of list_user">
+                            <td>{{user.user_id}}</td>
+                            <td>{{user.username}}</td>
+                            <td>{{user.firstname}} {{user.lastname}}</td>
+                            <td *ngIf="user.status==1"><span class="label label-success">Kích hoạt</span></td>
+                            <td *ngIf="user.status==0"><span class="label label-warning">Đang xử lý</span></td>
+                            <td *ngIf="user.status==-1"><span class="label label-danger">Vô hiệu</span></td>
+                            <td>{{user.email}}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-info"><i class="fa fa-eye"></i></button>
+                                    <button type="button" class="btn btn-info"><i class="fa fa-edit"></i></button>
+                                    <button type="button" class="btn btn-info"><i class="fa  fa-remove"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+                <ul class="pagination pagination-sm no-margin pull-right">
+                    <li><a href="#">«</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">»</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.box -->
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="products-grid">
+    <div class="container">
+        <header>
+            <h3 class="head text-center">Latest Products</h3>
+        </header>
+        <div class="col-md-4 product simpleCart_shelfItem text-center" (click)="gotoDetail(item)"
+        *ngFor="let item of list_product_display, let i = index">
+            <a><img src="{{item.img}}" alt="" /></a>
+            <div class="mask">
+                <a>Quick View</a>
+            </div>
+            <a class="product_name">{{item.name | uppercase}}</a>
+            <p *ngIf="item.price_sale != 0">
+                <a href="#">
+                    <i></i>
+                    <span class="item-price">{{item.price_sale | currency:'USD':true}}</span>
+                    <span><del>{{item.price | currency:'USD':true}}</del></span>
+                </a>
+            </p>
+            <p *ngIf="item.price_sale == 0">
+                <a href="#">
+                    <i></i> <span class="item-price">{{item.price | currency:'USD':true}}</span>
+                </a>
+            </p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

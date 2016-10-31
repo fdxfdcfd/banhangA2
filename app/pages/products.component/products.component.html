@@ -1,0 +1,47 @@
+<wid_header></wid_header>
+
+<mod_main_menu></mod_main_menu>
+
+<div id="main-content" class="container">
+	<div class="products-page">
+		<mod_sidebar></mod_sidebar>
+		<div id="list-products" class="new-product">
+			<div class="new-product-top">
+				<ul class="product-top-list">
+					<li><a routerLink="/home">Home</a>&nbsp;<span>&gt;</span></li>
+					<li><span class="act">Best Sales</span>&nbsp;</li>
+				</ul>
+				<p class="back"><a routerLink="/home">Back to Previous</a></p>
+				<div class="clearfix"></div>
+			</div>
+			<div class="mens-toolbar">
+				<div class="sort">
+					<div class="sort-by">
+						<label>Sort By</label>
+						<select>
+                    <option value="">Position</option>
+                    <option value="">Name</option>
+                    <option value="">Price</option>
+                </select>
+						<a href=""><img src="images/arrow2.gif" alt="" class="v-middle"></a>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+
+			<div class="single-product-area">
+        		<mod_list_products></mod_list_products>
+				<mod_paging></mod_paging>
+			</div>
+			<script src="js/classie.js" type="text/javascript"></script>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+<mod_sale_products></mod_sale_products>
+
+<mod_news_letter></mod_news_letter>
+
+<wid_footer></wid_footer>

@@ -1,0 +1,167 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>Hiển Phạm</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
+        <!-- search form -->
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+        </form>
+        <!-- /.search form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="active treeview">
+                <a routerLink="/admin">
+                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="header">Quản lý</li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Quản lý sản phẩm</span>
+                    <span class="pull-right-container">
+              <span class="label label-primary pull-right">2</span>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a routerLink="/admin/quan-ly-san-pham"><i class="fa fa-circle-o"></i> Danh sách sản phẩm</a></li>
+                    <li><a routerLink="/admin/them-san-pham"><i class="fa fa-circle-o"></i>Thêm sản phẩm</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Quản lý khách hàng</span>
+                    <span class="pull-right-container">
+              <span class="label label-primary pull-right">2</span>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a routerLink="/admin/quan-ly-khach-hang"><i class="fa fa-circle-o"></i> Danh sách khách hàng</a></li>
+                    <li><a href="/admin/them-khach-hang"><i class="fa fa-circle-o"></i>Thêm Thêm khách hàng</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Quản lý Nhân viên</span>
+                    <span class="pull-right-container">
+              <span class="label label-primary pull-right">2</span>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a routerLink="/admin/quan-ly-nhan-vien"><i class="fa fa-circle-o"></i> Danh sách nhân viên</a></li>
+                    <li><a routerLink="/admin/them-nhan-vien"><i class="fa fa-circle-o"></i>Thêm Thêm nhân viên</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Quản lý khuyến mãi</span>
+                    <span class="pull-right-container">
+              <span class="label label-primary pull-right">2</span>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a routerLink="/admin/quan-ly-khuyen-mai"><i class="fa fa-circle-o"></i> Danh sách khuyến mãi</a></li>
+                    <li><a href="pages/add_promotion.html"><i class="fa fa-circle-o"></i>Thêm Thêm khuyến mãi</a></li>
+                </ul>
+            </li>
+            <li>
+                <a routerLink="/admin/quan-ly-doi-tac">
+                    <i class="fa fa-envelope"></i> <span>Quản lý đối tác</span>
+                    <span class="pull-right-container">
+              <small class="label pull-right bg-yellow">12</small>
+            </span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="admin/quan-ly-hoa-don">
+                    <i class="fa fa-envelope"></i> <span>Quản lý Hóa đơn</span>
+                    <span class="pull-right-container">
+              <small class="label pull-right bg-yellow">12</small>
+            </span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/admin/quan-ly-tin-tuc">
+                    <i class="fa fa-envelope"></i> <span>Quản lý tin tức</span>
+                    <span class="pull-right-container">
+              <small class="label pull-right bg-yellow">12</small>
+            </span>
+                </a>
+            </li>
+            <li>
+                <a href="pages/list_comment.html">
+                    <i class="fa fa-envelope"></i> <span>Quản lý comment</span>
+                    <span class="pull-right-container">
+              <small class="label pull-right bg-yellow">12</small>
+            </span>
+                </a>
+            </li>
+            <li class="header">Quản lý danh mục</li>
+            <li>
+                <a routerLink="/admin/quan-ly-loai-san-pham">
+                    <i class="fa fa-envelope"></i> <span>Quản lý loại sản phẩm</span>
+                    <span class="pull-right-container">
+              <small class="label pull-right bg-green">16</small>
+            </span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/admin/quan-ly-loai-nhan-vien">
+                    <i class="fa fa-envelope"></i> <span>Quản lý loại user</span>
+                    <span class="pull-right-container">
+              <small class="label pull-right bg-green">16</small>
+            </span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/admin/quan-ly-loai-khach-hang">
+                    <i class="fa fa-envelope"></i> <span>Quản lý loại Khách hàng</span>
+                    <span class="pull-right-container">
+              <small class="label pull-right bg-green">16</small>
+            </span>
+                </a>
+            </li>
+            <li class="header">Quản lý giao diện</li>
+            <li>
+                <a routerLink="/admin/quan-ly-menu">
+                    <i class="fa fa-calendar"></i> <span>Quản lý menu</span>
+                    <span class="pull-right-container">
+              <small class="label pull-right bg-red">3</small>
+              <small class="label pull-right bg-blue">17</small>
+            </span>
+                </a>
+            </li>
+            <li>
+                <a href="pages/list_banner.html">
+                    <i class="fa fa-calendar"></i> <span>Quản lý banner</span>
+                    <span class="pull-right-container">
+              <small class="label pull-right bg-red">3</small>
+              <small class="label pull-right bg-blue">17</small>
+            </span>
+                </a>
+            </li>
+            <li class="header">tài liệu liên quan</li>
+            <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Tài liệu</span></a></li>
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>
