@@ -9,17 +9,83 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var service_slide_banner_1 = require('../../services/service_slide_banner/service_slide_banner');
 var ModBannerComponent = (function () {
-    function ModBannerComponent() {
+    function ModBannerComponent(service) {
+        var _this = this;
+        this.service = service;
+        this.slide_display = 0;
+        service.getDanhSachSlideBannerPromise().then(function (p) { return _this.list_slide_banner = p; });
     }
     ModBannerComponent.prototype.ngOnInit = function () { };
+    ModBannerComponent.prototype.hien_thi_slide = function () {
+        for (var i = 0; i < this.list_slide_banner.length; i++) {
+            var last = this.list_slide_banner.length - 1;
+            var now = this.slide_display;
+            this.list_slide_banner[now].state = "inactive";
+            if (now == 0) {
+                this.list_slide_banner[last].state = "left";
+                this.list_slide_banner[now + 1].state = "right";
+            }
+            else if (now == last) {
+                this.list_slide_banner[now - 1].state = "left";
+                this.list_slide_banner[0].state = "right";
+            }
+            else {
+                this.list_slide_banner[now - 1].state = "left";
+                this.list_slide_banner[now + 1].state = "right";
+            }
+        }
+        console.log(this.slide_display);
+    };
+    ModBannerComponent.prototype.click_next = function () {
+        if (this.slide_display >= this.list_slide_banner.length - 1) {
+            this.slide_display = 0;
+        }
+        else {
+            this.slide_display += 1;
+        }
+        this.hien_thi_slide();
+    };
+    ModBannerComponent.prototype.click_prev = function () {
+        if (this.slide_display <= 0) {
+            this.slide_display = this.list_slide_banner.length - 1;
+        }
+        else {
+            this.slide_display -= 1;
+        }
+        this.hien_thi_slide();
+    };
     ModBannerComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'mod_banner',
-            templateUrl: 'mod_banner.component.html'
+            templateUrl: 'mod_banner.component.html',
+            providers: [service_slide_banner_1.SlideBannerService],
+            animations: [
+                core_1.trigger("anSlideBanner", [
+                    core_1.state("left", core_1.style({
+                        "opacity": 0,
+                        "transform": "translateX(-30%)"
+                    })),
+                    core_1.state("inactive", core_1.style({
+                        "opacity": 1,
+                        "transform": "translateX(0)"
+                    })),
+                    core_1.state("right", core_1.style({
+                        "opacity": 0,
+                        "transform": "translateX(30%)"
+                    })),
+                    core_1.transition("right => inactive", core_1.animate("2000ms ease-in")),
+                    core_1.transition("inactive => left", core_1.animate("1500ms ease-out")),
+                    core_1.transition("left => right", core_1.animate("1000ms ease")),
+                    core_1.transition("left => inactive", core_1.animate("2000ms ease-in")),
+                    core_1.transition("inactive => right", core_1.animate("1500ms ease-out")),
+                    core_1.transition("right=> left", core_1.animate("1000ms ease")),
+                ])
+            ]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [service_slide_banner_1.SlideBannerService])
     ], ModBannerComponent);
     return ModBannerComponent;
 }());

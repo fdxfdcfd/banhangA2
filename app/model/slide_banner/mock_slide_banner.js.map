@@ -1,0 +1,1 @@
+{"version":3,"file":"mock_slide_banner.js","sourceRoot":"","sources":["mock_slide_banner.ts"],"names":[],"mappings":";AAEW,yBAAiB,GAAiB;IACzC;QACI,KAAK,EAAE,eAAe;QACtB,OAAO,EAAE,6BAA6B;QACtC,KAAK,EAAE,UAAU;KACpB;IACD;QACI,KAAK,EAAE,iBAAiB;QACxB,OAAO,EAAE,mBAAmB;QAC5B,KAAK,EAAE,OAAO;KACjB;IACD;QACI,KAAK,EAAE,eAAe;QACtB,OAAO,EAAE,kBAAkB;QAC3B,KAAK,EAAE,MAAM;KAChB;CACJ,CAAA"}

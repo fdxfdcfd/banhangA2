@@ -1,9 +1,9 @@
-<IfModule mod_rewrite.c>
-  Options Indexes FollowSymLinks
-  RewriteEngine On
-  RewriteBase /a2/
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /a2/index.html [L]
-</IfModule>
+Options +FollowSymLinks
+
+<ifModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !index
+    RewriteRule (.*) index.html [L]
+</ifModule>

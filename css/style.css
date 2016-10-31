@@ -216,6 +216,7 @@ ul.multi-column-dropdown h6 {
 	margin: 110px 0px 0px 30px;
 }
 .banner-bottom-right{
+	position: relative;
 	float:right;
 	width: 50%;
 }
@@ -252,7 +253,7 @@ ul.multi-column-dropdown h6 {
   list-style: none;
 }
 .callbacks_container {
-  position: relative;
+  position: absolute;
   float: left;
   width: 100%;
 }
@@ -3107,4 +3108,8 @@ p.brief {
 
 a:hover {
 	cursor: pointer;
+}
+
+.carousel-control i {
+	color: rgb(210, 214, 222);
 }

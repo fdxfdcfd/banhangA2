@@ -4,14 +4,16 @@
             <div class="banner-bottom-left">
                 <h2>B<br>U<br>Y</h2>
             </div>
-            <div class="banner-bottom-right">
-                <div class="callbacks_container">
+            <div class="banner-bottom-right" *ngFor="let slide_banner of list_slide_banner">
+                <div class="callbacks_container" @anSlideBanner="slide_banner.state">
                     <div class="banner-info">
-                        <h3>Shop Online</h3>
-                        <p>Start your shopping here...</p>
+                        <h3>{{slide_banner.title}}</h3>
+                        <p>{{slide_banner.content}}</p>
                     </div>
                 </div>
             </div>
+            <a class="left carousel-control" (click)="click_prev()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+            <a class="right carousel-control" (click)="click_next()"><i class="glyphicon glyphicon-chevron-right"></i></a>
             <div class="clearfix"> </div>
         </div>
         <div class="shop">
