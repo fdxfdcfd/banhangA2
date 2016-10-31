@@ -8,7 +8,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class ProductService {
-    url_api = "/app/service_api/api_product.php";
+    url_api = "/banhangA2/app/service_api/api_product.php";
     handleError = 'lỗi rồi';
 
     constructor(private http: Http) { }

@@ -17,7 +17,7 @@ require('rxjs/Rx');
 var ProductService = (function () {
     function ProductService(http) {
         this.http = http;
-        this.url_api = "/app/service_api/api_product.php";
+        this.url_api = "/banhangA2/app/service_api/api_product.php";
         this.handleError = 'lỗi rồi';
     }
     ProductService.prototype.getListProductApi = function () {
