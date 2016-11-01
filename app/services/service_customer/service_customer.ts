@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Customer } from '../../model/customer/customer';
-import { list_customer } from '../../model/customer/mock_customer';
+import { Http, Response } from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
 
 @Injectable()
 export class CustomerService {
+    url_api = "/banhangA2/service_api/api_customer.php";
 
-    constructor() { }
+    constructor(private http: Http) { }
 
-    getListCustomer() {
-        return list_customer;
-    }
-
-    getListCustomerPromise():Promise<Customer[]> {
-        return Promise.resolve(list_customer);
+    getListCustomerApi() {
+        return this.http.get(this.url_api).map(res => res.json());
     }
 }

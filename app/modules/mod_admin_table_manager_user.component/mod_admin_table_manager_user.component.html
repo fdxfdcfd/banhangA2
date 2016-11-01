@@ -26,10 +26,10 @@
                             <th>Email</th>
                             <th>Thao tác</th>
                         </tr>
-                        <tr *ngFor="let user of list_user">
-                            <td>{{user.user_id}}</td>
+                        <tr *ngFor="let user of list_user_display">
+                            <td>{{user.id}}</td>
                             <td>{{user.username}}</td>
-                            <td>{{user.firstname}} {{user.lastname}}</td>
+                            <td>{{user.first_name}} {{user.last_name}}</td>
                             <td *ngIf="user.status==1"><span class="label label-success">Kích hoạt</span></td>
                             <td *ngIf="user.status==0"><span class="label label-warning">Đang xử lý</span></td>
                             <td *ngIf="user.status==-1"><span class="label label-danger">Vô hiệu</span></td>

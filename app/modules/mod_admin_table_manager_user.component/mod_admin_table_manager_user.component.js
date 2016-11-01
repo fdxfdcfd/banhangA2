@@ -12,12 +12,17 @@ var core_1 = require('@angular/core');
 var service_user_1 = require('../../services/service_user/service_user');
 var ModAdminTableManagerUserComponent = (function () {
     function ModAdminTableManagerUserComponent(service_user) {
-        var _this = this;
         this.service_user = service_user;
-        //Sắp xếp id tăng dần
-        this.service_user.getListUserPromise().then(function (list) { return _this.list_user = list.sort(function (item1, item2) { return item1.id - item2.id; }); });
     }
-    ModAdminTableManagerUserComponent.prototype.ngOnInit = function () { };
+    ModAdminTableManagerUserComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service_user.getListUserApi().subscribe(function (data) { return _this.list_user_display = data.sort(function (item1, item2) { return item1.id - item2.id; }); }, // put the data returned from the server in our variable
+        function (// put the data returned from the server in our variable
+            error) { return console.log("Lỗi xảy ra ở HTTP service"); }, // in case of failure show this message
+        function () { return console.log(_this.list_user_display); } //run this code in all cases
+         //run this code in all cases
+        );
+    };
     ModAdminTableManagerUserComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

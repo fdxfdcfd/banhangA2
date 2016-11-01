@@ -9,19 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var mock_comment_1 = require('../../model/comment/mock_comment');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/map');
+require('rxjs/Rx');
 var CommentService = (function () {
-    function CommentService() {
+    function CommentService(http) {
+        this.http = http;
+        this.url_api = "/banhangA2/service_api/api_comment.php";
     }
-    CommentService.prototype.getListComment = function () {
-        return mock_comment_1.list_comment;
-    };
-    CommentService.prototype.getListCommentPromise = function () {
-        return Promise.resolve(mock_comment_1.list_comment);
+    CommentService.prototype.getListCommentApi = function () {
+        return this.http.get(this.url_api).map(function (res) { return res.json(); });
     };
     CommentService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], CommentService);
     return CommentService;
 }());

@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../model/user/user';
-import { list_user } from '../../model/user/mock_user';
+import { Http, Response } from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
 
 @Injectable()
 export class UserService {
+    url_api = "/banhangA2/service_api/api_user.php";
 
-    constructor() { }
-    getListUser() {
-        return list_user;
-    }
+    constructor(private http: Http) { }
 
-    getListUserPromise():Promise<User[]> {
-        return Promise.resolve(list_user);
+    getListUserApi() {
+        return this.http.get(this.url_api).map(res => res.json());
     }
 }

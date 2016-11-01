@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { OrderDetail } from '../../model/order_detail/order_detail';
-import { list_order_detail } from '../../model/order_detail/mock_order_detail';
+import { Http, Response } from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
 
 @Injectable()
 export class OrderDetailService {
+    url_api = "/banhangA2/service_api/api_order_detail.php";
 
-    constructor() { }
+    constructor(private http: Http) { }
 
-    getListOrderDetail() {
-        return list_order_detail;
-    }
-
-    getListOrderDetailPromise():Promise<OrderDetail[]> {
-        return Promise.resolve(list_order_detail);
+    getListOrderApi() {
+        return this.http.get(this.url_api).map(res => res.json());
     }
 }

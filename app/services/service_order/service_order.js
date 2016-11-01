@@ -9,19 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var mock_order_1 = require('../../model/order/mock_order');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/map');
+require('rxjs/Rx');
 var OrderService = (function () {
-    function OrderService() {
+    function OrderService(http) {
+        this.http = http;
+        this.url_api = "/banhangA2/service_api/api_order.php";
     }
-    OrderService.prototype.getListOrder = function () {
-        return mock_order_1.list_order;
-    };
-    OrderService.prototype.getListOrderPromise = function () {
-        return Promise.resolve(mock_order_1.list_order);
+    OrderService.prototype.getListOrderApi = function () {
+        return this.http.get(this.url_api).map(function (res) { return res.json(); });
     };
     OrderService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], OrderService);
     return OrderService;
 }());

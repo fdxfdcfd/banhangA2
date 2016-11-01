@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Comment } from '../../model/comment/comment';
-import { list_comment } from '../../model/comment/mock_comment';
+import { Http, Response } from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
 
 @Injectable()
 export class CommentService {
+    url_api = "/banhangA2/service_api/api_comment.php";
 
-    constructor() { }
+    constructor(private http: Http) { }
 
-    getListComment() {
-        return list_comment;
-    }
-
-    getListCommentPromise():Promise<Comment[]> {
-        return Promise.resolve(list_comment);
+    getListCommentApi() {
+        return this.http.get(this.url_api).map(res => res.json());
     }
 }

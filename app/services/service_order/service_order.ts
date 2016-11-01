@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Order } from '../../model/order/order';
-import { list_order } from '../../model/order/mock_order';
+import { Http, Response } from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
 
 @Injectable()
 export class OrderService {
+    url_api = "/banhangA2/service_api/api_order.php";
 
-    constructor() { }
+    constructor(private http: Http) { }
 
-    getListOrder() {
-        return list_order;
-    }
-
-    getListOrderPromise():Promise<Order[]> {
-        return Promise.resolve(list_order);
+    getListOrderApi() {
+        return this.http.get(this.url_api).map(res => res.json());
     }
 }
