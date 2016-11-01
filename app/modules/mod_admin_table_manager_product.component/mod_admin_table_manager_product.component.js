@@ -12,12 +12,17 @@ var core_1 = require('@angular/core');
 var service_product_1 = require('../../services/service_product/service_product');
 var ModAdminTableManagerProductComponent = (function () {
     function ModAdminTableManagerProductComponent(service_product) {
-        var _this = this;
         this.service_product = service_product;
-        this.service_product.getListProductPromise().then(function (list) { return _this.list_product_display
-            = list; });
     }
-    ModAdminTableManagerProductComponent.prototype.ngOnInit = function () { };
+    ModAdminTableManagerProductComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service_product.getListProductApi().subscribe(function (data) { return _this.list_product_display = data; }, // put the data returned from the server in our variable
+        function (// put the data returned from the server in our variable
+            error) { return console.log("Lỗi xảy ra ở HTTP service"); }, // in case of failure show this message
+        function () { return console.log(_this.list_product_display); } //run this code in all cases
+         //run this code in all cases
+        );
+    };
     ModAdminTableManagerProductComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

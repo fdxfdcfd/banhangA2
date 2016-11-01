@@ -22,8 +22,8 @@ export class ModDetailProductComponent implements OnInit {
     ngOnInit(): void {
         this.route.params.forEach((params: Params) => {
             let id = +params['id'];
-            this.service_product.getListProductApi().subscribe(
-                data => this.product = data.find(item => item.id == id), // put the data returned from the server in our variable
+            this.service_product.getProductByIdApi(id).subscribe(
+                data => this.product = data.shift(), // put the data returned from the server in our variable
                 error => console.log("Lỗi xảy ra ở HTTP service"), // in case of failure show this message
                 () => console.log(this.product)//run this code in all cases
             );

@@ -1,11 +1,18 @@
 export class SlideBanner{
+    id: number;
     title: string;
     content: string;
     state: string;
-    constructor(title, content, state)
+    created: number;
+    updated: number;
+    status: number;
+    constructor(id, title, content, state, created, updated, status)
     {
         this.title = title;
         this.content = content;
         this.state = state;
+        this.created = created;
+        this.updated = updated;
+        this.status = status;
     } 
 }

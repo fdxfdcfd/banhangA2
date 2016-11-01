@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var mock_product_1 = require('../../model/product/mock_product');
 var http_1 = require('@angular/http');
 var http_2 = require('@angular/http');
 require('rxjs/add/operator/map');
@@ -17,8 +16,7 @@ require('rxjs/Rx');
 var ProductService = (function () {
     function ProductService(http) {
         this.http = http;
-        this.url_api = "/banhangA2/app/service_api/api_product.php";
-        this.handleError = 'lỗi rồi';
+        this.url_api = "/banhangA2/service_api/api_product.php";
     }
     ProductService.prototype.getListProductApi = function () {
         return this.http.get(this.url_api).map(function (res) { return res.json(); });
@@ -28,8 +26,10 @@ var ProductService = (function () {
         var option = new http_2.RequestOptions({ method: "post" });
         return this.http.post(this.url_api, body, option).map(function (res) { return res.json(); });
     };
-    ProductService.prototype.getListProductPromise = function () {
-        return Promise.resolve(mock_product_1.list_product);
+    ProductService.prototype.getProductByIdApi = function (id) {
+        var body = JSON.stringify({ "id": id });
+        var option = new http_2.RequestOptions({ method: "post" });
+        return this.http.post(this.url_api, body, option).map(function (res) { return res.json(); });
     };
     ProductService = __decorate([
         core_1.Injectable(), 

@@ -9,16 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var mock_slide_banner_1 = require('../../model/slide_banner/mock_slide_banner');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/map');
+require('rxjs/Rx');
 var SlideBannerService = (function () {
-    function SlideBannerService() {
+    function SlideBannerService(http) {
+        this.http = http;
+        this.url_api = "/banhangA2/service_api/api_slide_banner.php";
     }
-    SlideBannerService.prototype.getDanhSachSlideBannerPromise = function () {
-        return Promise.resolve(mock_slide_banner_1.list_slide_banner);
+    SlideBannerService.prototype.getListSlideBannerApi = function () {
+        return this.http.get(this.url_api).map(function (res) { return res.json(); });
     };
     SlideBannerService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], SlideBannerService);
     return SlideBannerService;
 }());

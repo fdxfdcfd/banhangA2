@@ -9,23 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var mock_cate_product_1 = require('../../model/cate_product/mock_cate_product');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/map');
+require('rxjs/Rx');
 var CateProductService = (function () {
-    function CateProductService() {
+    function CateProductService(http) {
+        this.http = http;
+        this.url_api = "/banhangA2/service_api/api_cate_product.php";
     }
-    CateProductService.prototype.getListCateProduct = function () {
-        return mock_cate_product_1.list_cate_product;
-    };
-    CateProductService.prototype.getListCateProductPromise = function () {
-        return Promise.resolve(mock_cate_product_1.list_cate_product);
-    };
-    CateProductService.prototype.getCateProduct = function (id) {
-        return this.getListCateProductPromise()
-            .then(function (list_cate_product) { return list_cate_product.find(function (cate_product) { return cate_product.id == id; }); });
+    CateProductService.prototype.getListCateProductApi = function () {
+        return this.http.get(this.url_api).map(function (res) { return res.json(); });
     };
     CateProductService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], CateProductService);
     return CateProductService;
 }());

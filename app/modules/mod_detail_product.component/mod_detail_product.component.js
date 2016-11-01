@@ -23,7 +23,7 @@ var ModDetailProductComponent = (function () {
         var _this = this;
         this.route.params.forEach(function (params) {
             var id = +params['id'];
-            _this.service_product.getListProductApi().subscribe(function (data) { return _this.product = data.find(function (item) { return item.id == id; }); }, // put the data returned from the server in our variable
+            _this.service_product.getProductByIdApi(id).subscribe(function (data) { return _this.product = data.shift(); }, // put the data returned from the server in our variable
             function (// put the data returned from the server in our variable
                 error) { return console.log("Lỗi xảy ra ở HTTP service"); }, // in case of failure show this message
             function () { return console.log(_this.product); } //run this code in all cases

@@ -10,11 +10,14 @@ import { Router } from '@angular/router';
 })
 export class ModMainMenuComponent implements OnInit {
     list_cate_product_display: CateProduct[];
-    constructor(private service_cate_product: CateProductService, private router: Router) {
-        this.service_cate_product.getListCateProductPromise().then(list => this.list_cate_product_display 
-        = list.filter(item => item.status == 1));
+    constructor(private service: CateProductService, private router: Router) { }
+    ngOnInit(): void {
+        this.service.getListCateProductApi().subscribe(
+            data => this.list_cate_product_display = data, // put the data returned from the server in our variable
+            error => console.log("Lỗi xảy ra ở HTTP service"), // in case of failure show this message
+            () => console.log(this.list_cate_product_display)//run this code in all cases
+        );
     }
-    ngOnInit() { }
     gotoListProducts(cate_product: CateProduct): void {
         let link = ['/products', cate_product.id];
         this.router.navigate(link);

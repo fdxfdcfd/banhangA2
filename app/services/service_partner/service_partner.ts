@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Partner } from '../../model/partner/partner';
-import { list_partner } from '../../model/partner/mock_partner';
+import { Http, Response } from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
 
 @Injectable()
 export class PartnerService {
+    url_api = "/banhangA2/service_api/api_partner.php";
 
-    constructor() { }
+    constructor(private http: Http) { }
 
-    getListPartner() {
-        return list_partner;
-    }
-
-    getListPartnerPromise():Promise<Partner[]> {
-        return Promise.resolve(list_partner);
+    getListPartnerApi() {
+        return this.http.get(this.url_api).map(res => res.json());
     }
 }

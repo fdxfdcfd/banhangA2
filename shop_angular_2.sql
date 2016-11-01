@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2016 at 06:20 AM
+-- Generation Time: Nov 01, 2016 at 08:24 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -227,6 +227,32 @@ INSERT INTO `product` (`id`, `name`, `price`, `price_sale`, `img`, `brief`, `det
 (7, 'black dress', 321, 0, 'images/p7.jpg', 'Wattle seed bunya nuts spring onion okra garlic bitterleaf zucchini', 'Look knock-out on nights out in figure-skimming bodycon fits, flowing maxi lengths and stunning sequin-embellished occasion dresses. This season make for satin sheen slip dresses in mink nudes, and ma', 3, 3, 5, 10, 1476689959004, 1476689959004, 'inactive', 1),
 (8, 'white dress', 256, 210, 'images/p8.jpg', 'Wattle seed bunya nuts spring onion okra garlic bitterleaf zucchini', 'Look knock-out on nights out in figure-skimming bodycon fits, flowing maxi lengths and stunning sequin-embellished occasion dresses. This season make for satin sheen slip dresses in mink nudes, and ma', 3, 3, 5, 10, 1472359959004, 1472359959004, 'inactive', 1),
 (9, 'purple dress', 648, 550, 'images/p9.jpg', 'Wattle seed bunya nuts spring onion okra garlic bitterleaf zucchini', 'Look knock-out on nights out in figure-skimming bodycon fits, flowing maxi lengths and stunning sequin-embellished occasion dresses. This season make for satin sheen slip dresses in mink nudes, and ma', 3, 2, 5, 10, 14750757959004, 14750757959004, 'inactive', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slide_banner`
+--
+
+CREATE TABLE IF NOT EXISTS `slide_banner` (
+  `id` int(5) NOT NULL,
+  `title` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `content` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `state` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `created` bigint(15) NOT NULL,
+  `updated` bigint(15) NOT NULL,
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `slide_banner`
+--
+
+INSERT INTO `slide_banner` (`id`, `title`, `content`, `state`, `created`, `updated`, `status`) VALUES
+(1, 'Smart But Casual', 'Start your shopping here...', 'inactive', 1475539959004, 1475539959004, 1),
+(2, 'Shop Online', 'Start your shopping here...', 'right', 1475539959004, 1475539959004, 1),
+(3, 'Pack your Bag', 'Start your shopping here...', 'left', 1475539959004, 1475539959004, 1);
 
 -- --------------------------------------------------------
 

@@ -1,9 +1,12 @@
 "use strict";
 var SlideBanner = (function () {
-    function SlideBanner(title, content, state) {
+    function SlideBanner(id, title, content, state, created, updated, status) {
         this.title = title;
         this.content = content;
         this.state = state;
+        this.created = created;
+        this.updated = updated;
+        this.status = status;
     }
     return SlideBanner;
 }());

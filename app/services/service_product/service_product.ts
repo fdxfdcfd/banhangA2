@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../../model/product/product';
-import { list_product } from '../../model/product/mock_product';
 import { Http, Response } from '@angular/http';
 import {Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -8,8 +7,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class ProductService {
-    url_api = "/banhangA2/app/service_api/api_product.php";
-    handleError = 'lỗi rồi';
+    url_api = "/banhangA2/service_api/api_product.php";
 
     constructor(private http: Http) { }
 
@@ -24,7 +22,10 @@ export class ProductService {
         return this.http.post(this.url_api, body, option).map(res => res.json());
     }
 
-    getListProductPromise():Promise<Product[]> {
-        return Promise.resolve(list_product);
+    getProductByIdApi(id)
+    {
+        let body = JSON.stringify({ "id": id });
+        let option = new RequestOptions({ method: "post" });
+        return this.http.post(this.url_api, body, option).map(res => res.json());
     }
 }

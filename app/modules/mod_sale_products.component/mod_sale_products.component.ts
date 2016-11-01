@@ -10,10 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ModSaleProductsComponent implements OnInit {
     list_product_display: Product[];
-    constructor(private service_product: ProductService, private router: Router) {
-        // this.service_product.getListProductPromise().then(list => this.list_product_display
-        //     = list.sort((item1, item2) => item2.price_sale - item1.price_sale).slice(0, 6));
-    }
+    constructor(private service_product: ProductService, private router: Router) { }
     ngOnInit(): void {
     this.service_product.getListProductApi().subscribe(
         data => this.list_product_display = data.filter(item => item.price_sale != 0).slice(0, 6), // put the data returned from the server in our variable

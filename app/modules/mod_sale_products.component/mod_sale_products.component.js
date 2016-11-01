@@ -15,8 +15,6 @@ var ModSaleProductsComponent = (function () {
     function ModSaleProductsComponent(service_product, router) {
         this.service_product = service_product;
         this.router = router;
-        // this.service_product.getListProductPromise().then(list => this.list_product_display
-        //     = list.sort((item1, item2) => item2.price_sale - item1.price_sale).slice(0, 6));
     }
     ModSaleProductsComponent.prototype.ngOnInit = function () {
         var _this = this;

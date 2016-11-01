@@ -1,22 +1,17 @@
 import { Injectable } from '@angular/core';
 import { CateProduct } from '../../model/cate_product/cate_product';
-import { list_cate_product } from '../../model/cate_product/mock_cate_product';
+import { Http, Response } from '@angular/http';
+import {Headers, RequestOptions} from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
 
 @Injectable()
 export class CateProductService {
+    url_api = "/banhangA2/service_api/api_cate_product.php";
 
-    constructor() { }
+    constructor(private http: Http) { }
 
-    getListCateProduct() {
-        return list_cate_product;
-    }
-
-    getListCateProductPromise(): Promise<CateProduct[]> {
-        return Promise.resolve(list_cate_product);
-    }
-
-    getCateProduct(id: number): Promise<CateProduct> {
-        return this.getListCateProductPromise()
-            .then(list_cate_product => list_cate_product.find(cate_product => cate_product.id == id));
+    getListCateProductApi() {
+        return this.http.get(this.url_api).map(res => res.json());
     }
 }

@@ -9,19 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var mock_partner_1 = require('../../model/partner/mock_partner');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/map');
+require('rxjs/Rx');
 var PartnerService = (function () {
-    function PartnerService() {
+    function PartnerService(http) {
+        this.http = http;
+        this.url_api = "/banhangA2/service_api/api_partner.php";
     }
-    PartnerService.prototype.getListPartner = function () {
-        return mock_partner_1.list_partner;
-    };
-    PartnerService.prototype.getListPartnerPromise = function () {
-        return Promise.resolve(mock_partner_1.list_partner);
+    PartnerService.prototype.getListPartnerApi = function () {
+        return this.http.get(this.url_api).map(function (res) { return res.json(); });
     };
     PartnerService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], PartnerService);
     return PartnerService;
 }());

@@ -11,15 +11,15 @@ import { SlideBanner } from '../../model/slide_banner/slide_banner';
         trigger("anSlideBanner", [
             state("left", style({
                 "opacity": 0,
-                "transform": "translateX(-30%)"
+                "transform": "translateX(-30%)",
             })),
             state("inactive", style({
                 "opacity": 1,
-                "transform": "translateX(0)"
+                "transform": "translateX(0)",
             })),
             state("right", style({
                 "opacity": 0,
-                "transform": "translateX(30%)"
+                "transform": "translateX(30%)",
             })),
             transition("right => inactive",animate("2000ms ease-in")),
             transition("inactive => left",animate("1500ms ease-out")),
@@ -34,11 +34,15 @@ export class ModBannerComponent implements OnInit {
     list_slide_banner: SlideBanner[];
     slide_display = 0;
 
-    constructor(private service: SlideBannerService) { 
-        service.getDanhSachSlideBannerPromise().then(p => this.list_slide_banner = p);
-    }
+    constructor(private service: SlideBannerService) { }
 
-    ngOnInit() { }
+    ngOnInit(): void {
+        this.service.getListSlideBannerApi().subscribe(
+            data => this.list_slide_banner = data, // put the data returned from the server in our variable
+            error => console.log("Lỗi xảy ra ở HTTP service"), // in case of failure show this message
+            () => console.log(this.list_slide_banner)//run this code in all cases
+        );
+    }
 
     hien_thi_slide(){
         for(let i = 0; i < this.list_slide_banner.length; i++)
