@@ -42,6 +42,7 @@ export class ModBannerComponent implements OnInit {
             error => console.log("Lỗi xảy ra ở HTTP service"), // in case of failure show this message
             () => console.log(this.list_slide_banner)//run this code in all cases
         );
+        setInterval(() => { this.click_next(); }, 3000);
     }
 
     hien_thi_slide(){
@@ -65,7 +66,6 @@ export class ModBannerComponent implements OnInit {
                 this.list_slide_banner[now+1].state = "right";                
             }
         }
-        console.log(this.slide_display);
     }
 
     click_next(){
@@ -91,4 +91,5 @@ export class ModBannerComponent implements OnInit {
         }
         this.hien_thi_slide();
     }
+    
 }

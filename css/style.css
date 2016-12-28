@@ -211,6 +211,9 @@ ul.multi-column-dropdown h6 {
     min-width: 550px;
     padding: 15px 20px;
 }
+.banner-bottom {
+	position: relative;
+}
 .banner-bottom-left{
 	float:Left;
 	margin: 110px 0px 0px 30px;

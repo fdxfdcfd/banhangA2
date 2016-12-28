@@ -23,6 +23,7 @@ var ModBannerComponent = (function () {
         function () { return console.log(_this.list_slide_banner); } //run this code in all cases
          //run this code in all cases
         );
+        setInterval(function () { _this.click_next(); }, 3000);
     };
     ModBannerComponent.prototype.hien_thi_slide = function () {
         for (var i = 0; i < this.list_slide_banner.length; i++) {
@@ -42,7 +43,6 @@ var ModBannerComponent = (function () {
                 this.list_slide_banner[now + 1].state = "right";
             }
         }
-        console.log(this.slide_display);
     };
     ModBannerComponent.prototype.click_next = function () {
         if (this.slide_display >= this.list_slide_banner.length - 1) {
